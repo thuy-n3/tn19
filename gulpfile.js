@@ -128,8 +128,11 @@ const watch = gulp.series(build, gulp.parallel(watchFiles, browserSync));
 
 //Push build to gh-pages
 gulp.task('deploy', function () {
-  return gulp.src("./dist/**/*")
-    .pipe(deploy())
+  return gulp.src("./prod/**/*")
+    .pipe(deploy({
+      remoteUrl: "https://github.com/thuy-n3/tn19",
+      branch: "master"
+    }))
 });
 
 // Export tasks
@@ -140,5 +143,6 @@ exports.vendor = vendor;
 exports.build = build;
 exports.watch = watch;
 exports.default = build;
+exports.deploy = deploy;
 
 
