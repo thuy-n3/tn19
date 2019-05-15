@@ -130,7 +130,7 @@ const watch = gulp.series(build, gulp.parallel(watchFiles, browserSync));
 gulp.task('deploy', function () {
   return gulp.src("./prod/**/*")
     .pipe(deploy({
-      remoteUrl: "https://github.com/thuy-n3/tn19",
+      remoteUrl: "https://github.com/thuy-n3/tn19.git",
       branch: "master"
     }))
 });
